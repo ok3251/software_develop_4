@@ -17,7 +17,7 @@ const RegisterContainer = () =>{
     const [passwordMatchStatus, setPasswordMatchStatus] = useState();
 
     function checkIdDuplicate() {
-        if(userInfo.id.length < 5){
+        if(userInfo.id.length < 4){
             return alert('아이디를 4글자 이상 써주세요')
         }
         axios.get('http://localhost:8080/idcheck/' + userInfo.id)
@@ -66,6 +66,11 @@ const RegisterContainer = () =>{
     
         if (passwordMatchStatus === undefined) {
             alert('비밀번호 확인을 해주세요.');
+            return;
+        }
+
+        if(userInfo.password !== userInfo.passwordConfirm){
+            alert('비밀번호가 일치하지 않습니다.')
             return;
         }
         axios.post(`http://localhost:8080/signup`,{id : userInfo.id, pw : userInfo.password, name : userInfo.name})
