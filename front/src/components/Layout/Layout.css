@@ -1,0 +1,10 @@
+.layout {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40vw;
+    min-width: 650px;
+    height: 99vh;
+    transform: translate(-50%, -50%);
+    background-color: #F5F5F5;
+}
